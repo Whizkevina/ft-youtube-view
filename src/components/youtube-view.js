@@ -13,7 +13,7 @@ function YoutubeView() {
 
   const getYoutubeViewWithAxios = async () => {
       const response = await axios.get('http://localhost:3000/api/');
-      console.log(response);
+    //   console.log(response);
       setUserData(response.data);
   };
 

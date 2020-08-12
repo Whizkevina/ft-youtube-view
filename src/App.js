@@ -1,27 +1,35 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import YoutubeReport from './components/youtube-report';
 import YoutubeView from './components/youtube-view';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      reports: []
+      report: []
     }
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/api/')
-    .then(res => res.json())
-    .then(json => json.reports)
-    .then(reports => this.setState({'reports': reports}))
-  }
-
+    axios
+      .get('http://localhost:3000/api/')
+      .then(res => {
+        this.setState({
+          report: res.data,
+        });
+      })
+      .catch(err => {
+        console.log('Error from Youtube report');
+      });
+    }
   render() {
     return (
       <div className="App">
-      {/* <YoutubeReport reports={ this.state.reports }/>   */}
-      <YoutubeView/>
+      <YoutubeReport report={ this.state.report }/>  
+      {/* <YoutubeView/> */}
       </div>
     );
   }
