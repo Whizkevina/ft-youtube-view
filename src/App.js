@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import YoutubeReport from './components/youtube-report';
-import YoutubeView from './components/youtube-view';
+// import YoutubeView from './components/youtube-view';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
